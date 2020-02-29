@@ -1,0 +1,31 @@
+<h1 class="h1">{{title}}</h1>
+
+<div class="data-card " data-variant="boxed" data-header>
+  <div class="data-card-header">
+    <h2 class="h2">Request Context</h2>
+  </div>
+  <div class="data-card-content">
+    <div class="ds-generic-content">
+      <p>SERVER_LOCATION: {{SERVER_LOCATION}}</p>
+      <p>REQ: {{req}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="data-card" data-variant="boxed" data-header>
+  <div class="data-card-header">
+    <h2 class="h2">Daily Revenue</h2>
+  </div>
+  <div class="data-card-content">
+    <div class="ds-generic-content">
+      <p>Total Profit: ${{profit}}</p>
+      <p>Previous Profit: ${{previousProfit}}</p>
+      <p>Orders: {{orders.length}}</p>
+      <h3 class="h3">Orders</h3>
+      {{#each orders}}
+        <p>Order ID: #{{orderid}}</p>
+        <p>Created on: {{createdOn}}</p>
+      {{/each}}
+    </div>
+  </div>
+</div>
