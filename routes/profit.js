@@ -6,10 +6,9 @@ const getServerLocation = require('../lib/get-server-location')
 router.get('/', async function (req, res, next) {
   console.log('------REQ------')
   console.log(req)
-  console.log('------RES------')
-  console.log(res)
-  console.log('------NEXT------')
-  console.log(next)
+  console.log('================')
+  console.log(req.parameters)
+  console.log(req.cookies)
   const everything = await getMeEverything()
   const {
     orders,
