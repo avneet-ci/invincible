@@ -1,19 +1,24 @@
-const { getMeEverything } = require('avneet-anf-hackathon')
-const express = require('express')
-const router = express.Router()
-const getServerLocation = require('../lib/get-server-location')
+const { getMeEverything } = require('avneet-anf-hackathon');
+const express = require('express');
+const router = express.Router();
+const getServerLocation = require('../lib/get-server-location');
 
 router.get('/', async function (req, res, next) {
-  const everything = await getMeEverything()
+  // console.log(req);
+  // console.log(res);
+  // console.log(next);
+  const everything = await getMeEverything();
+  console.log('everything');
+  console.log(everything);
   const {
     orders,
     profit,
     previousProfit
-  } = everything
+  } = everything;
 
-  const SERVER_LOCATION = getServerLocation(req.cookies)
+  const SERVER_LOCATION = getServerLocation(req.cookies);
 
-  const reqString = JSON.stringify(req)
+  // const reqString = JSON.stringify(req)
 
   res.render('profit', {
     title: 'Profits',
@@ -22,7 +27,7 @@ router.get('/', async function (req, res, next) {
     profit,
     previousProfit,
     req
-  })
-})
+  });
+});
 
-module.exports = router
+module.exports = router;
