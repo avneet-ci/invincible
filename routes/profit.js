@@ -4,8 +4,11 @@ const router = express.Router()
 const getServerLocation = require('../lib/get-server-location')
 
 router.get('/', async function (req, res, next) {
+  console.log('------REQ------')
   console.log(req)
+  console.log('------RES------')
   console.log(res)
+  console.log('------NEXT------')
   console.log(next)
   const everything = await getMeEverything()
   const {
