@@ -4,11 +4,6 @@ const router = express.Router()
 const getServerLocation = require('../lib/get-server-location')
 
 router.get('/', async function (req, res, next) {
-  console.log('------REQ------')
-  console.log(req)
-  console.log('================')
-  console.log(req.parameters)
-  console.log(req.cookies)
   const everything = await getMeEverything()
   const {
     orders,
@@ -16,9 +11,8 @@ router.get('/', async function (req, res, next) {
     previousProfit
   } = everything
 
-  const SERVER_LOCATION = getServerLocation(req.cookies)
-
-  // const reqString = JSON.stringify(req)
+  const SERVER_LOCATION = getServerLocation(req.headers.host)
+  const FAVORITE_ANIMAL = 'Dog'
 
   res.render('profit', {
     title: 'Profits',
@@ -26,7 +20,8 @@ router.get('/', async function (req, res, next) {
     orders,
     profit,
     previousProfit,
-    req
+    req,
+    FAVORITE_ANIMAL,
   })
 })
 
